@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="intprogfinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="kullaniciID" />
+    </Key>
+    <Property Name="kullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kullaniciturID" Type="Int32" />
+    <Property Name="eklenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="silinmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="silinmeDurumu" Type="Boolean" />
+    <NavigationProperty Name="kullanicitur" Relationship="Self.FK_Kullanici_kullanicitur" FromRole="Kullanici" ToRole="kullanicitur" />
+  </EntityType>
+  <EntityType Name="kullanicitur">
+    <Key>
+      <PropertyRef Name="kullaniciturID" />
+    </Key>
+    <Property Name="kullaniciturID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicituru" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_kullanicitur" FromRole="kullanicitur" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="sabit">
+    <Key>
+      <PropertyRef Name="sabitID" />
+    </Key>
+    <Property Name="sabitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="logoAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="siteadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="iletisimtel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="haritax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="haritay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="silinmedurumu" Type="Boolean" />
+    <Property Name="silinmetarihi" Type="DateTime" Precision="3" />
+    <Property Name="silenkullaniciID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SM">
+    <Key>
+      <PropertyRef Name="smID" />
+    </Key>
+    <Property Name="smID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="smadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="smadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="smiconurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Kullanici_kullanicitur">
+    <End Role="kullanicitur" Type="Self.kullanicitur" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanicitur">
+        <PropertyRef Name="kullaniciturID" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="kullaniciturID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="intprogfinalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="kullanicitur" EntityType="Self.kullanicitur" />
+    <EntitySet Name="sabit" EntityType="Self.sabit" />
+    <EntitySet Name="SM" EntityType="Self.SM" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Kullanici_kullanicitur" Association="Self.FK_Kullanici_kullanicitur">
+      <End Role="kullanicitur" EntitySet="kullanicitur" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <EntitySet Name="Slider" EntityType="intprogfinalModel.Slider" />
+    <EntitySet Name="AltSlider" EntityType="intprogfinalModel.AltSlider" />
+  </EntityContainer>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SliderMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SliderResimURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SilinmeDurumu" Type="Boolean" />
+    <Property Name="EkleyenKullaniciID" Type="Int32" />
+    <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilinmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilenKullaniciID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AltSlider">
+    <Key>
+      <PropertyRef Name="AltSliderID" />
+    </Key>
+    <Property Name="AltSliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaslikMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="icerikMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IconURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="EkleyenKullaniciID" Type="Int32" />
+    <Property Name="SilinmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilenKullaniciID" Type="Int32" />
+    <Property Name="SilinmeDurumu" Type="Boolean" />
+    <Property Name="TamMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

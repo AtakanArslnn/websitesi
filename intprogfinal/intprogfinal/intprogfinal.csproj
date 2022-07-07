@@ -1,0 +1,537 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5EAEDCB4-5205-44BC-81D1-2A9CB3066A7E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>intprogfinal</RootNamespace>
+    <AssemblyName>intprogfinal</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44310</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\css\bootstrap.min.css" />
+    <Content Include="admin\css\font-awesome.min.css" />
+    <Content Include="admin\css\templatemo_main.css" />
+    <Content Include="admin\data-visualization.html" />
+    <Content Include="admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="admin\index.html" />
+    <Content Include="admin\jqvmap\data\jquery.vmap.sampledata.js" />
+    <Content Include="admin\jqvmap\jquery.vmap.js" />
+    <Content Include="admin\jqvmap\jquery.vmap.min.js" />
+    <Content Include="admin\jqvmap\jquery.vmap.packed.js" />
+    <Content Include="admin\jqvmap\jqvmap.css" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.north-america.js" />
+    <Content Include="admin\jqvmap\maps\continents\jquery.vmap.south-america.js" />
+    <Content Include="admin\jqvmap\maps\continents\readme.txt" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.algeria.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.brazil.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.france.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="admin\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="admin\js\bootstrap.min.js" />
+    <Content Include="admin\js\Chart.min.js" />
+    <Content Include="admin\js\jquery.min.js" />
+    <Content Include="admin\js\templatemo_script.js" />
+    <Content Include="admin\maps.html" />
+    <Content Include="admin\preferences.html" />
+    <Content Include="admin\sign-in.html" />
+    <Content Include="admin\tables.html" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\templatemo_misc.css" />
+    <Content Include="css\templatemo_style.css" />
+    <Content Include="fonts\flexslider-icon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="images\about_1.jpg" />
+    <Content Include="images\about_2.jpg" />
+    <Content Include="images\AjaxLoader.gif" />
+    <Content Include="images\destination_1.jpg" />
+    <Content Include="images\destination_2.jpg" />
+    <Content Include="images\destination_3.jpg" />
+    <Content Include="images\destination_4.jpg" />
+    <Content Include="images\destination_5.jpg" />
+    <Content Include="images\destination_6.jpg" />
+    <Content Include="images\event_1.jpg" />
+    <Content Include="images\event_2.jpg" />
+    <Content Include="images\event_3.jpg" />
+    <Content Include="images\event_4.jpg" />
+    <Content Include="images\event_5.jpg" />
+    <Content Include="images\grabbing.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\partners\partner1.png" />
+    <Content Include="images\partners\partner2.png" />
+    <Content Include="images\partners\partner3.png" />
+    <Content Include="images\templatemo_header_1.jpg" />
+    <Content Include="images\templatemo_header_2.jpg" />
+    <Content Include="images\templatemo_header_3.jpg" />
+    <Content Include="images\templatemo_header_4.jpg" />
+    <Content Include="images\templatemo_slide_1.jpg" />
+    <Content Include="images\templatemo_slide_2.jpg" />
+    <Content Include="images\templatemo_slide_3.jpg" />
+    <Content Include="index.aspx" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\min\main.min.js" />
+    <Content Include="js\min\plugins.min.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\vendor\jquery-1.11.0.min.js" />
+    <Content Include="js\vendor\jquery.gmap3.min.js" />
+    <Content Include="js\vendor\modernizr-2.6.1-respond-1.1.0.min.js" />
+    <Content Include="site\css\style.css" />
+    <Content Include="yonetim\altslideryonetimi.aspx" />
+    <Content Include="yonetim\degiskenleriyonet.aspx" />
+    <Content Include="yonetim\index.aspx" />
+    <Content Include="site\about.html" />
+    <Content Include="site\contact.html" />
+    <Content Include="site\css\animate.css" />
+    <Content Include="site\css\bootstrap.min.css" />
+    <Content Include="site\css\font-awesome.css" />
+    <Content Include="site\css\templatemo_misc.css" />
+    <Content Include="site\css\templatemo_style.css" />
+    <Content Include="site\events.html" />
+    <Content Include="site\fonts\flexslider-icon.svg" />
+    <Content Include="site\fonts\fontawesome-webfont.svg" />
+    <Content Include="site\images\about_1.jpg" />
+    <Content Include="site\images\about_2.jpg" />
+    <Content Include="site\images\AjaxLoader.gif" />
+    <Content Include="site\images\destination_1.jpg" />
+    <Content Include="site\images\destination_2.jpg" />
+    <Content Include="site\images\destination_3.jpg" />
+    <Content Include="site\images\destination_4.jpg" />
+    <Content Include="site\images\destination_5.jpg" />
+    <Content Include="site\images\destination_6.jpg" />
+    <Content Include="site\images\event_1.jpg" />
+    <Content Include="site\images\event_2.jpg" />
+    <Content Include="site\images\event_3.jpg" />
+    <Content Include="site\images\event_4.jpg" />
+    <Content Include="site\images\event_5.jpg" />
+    <Content Include="site\images\grabbing.png" />
+    <Content Include="site\images\logo.png" />
+    <Content Include="site\images\partners\partner1.png" />
+    <Content Include="site\images\partners\partner2.png" />
+    <Content Include="site\images\partners\partner3.png" />
+    <Content Include="site\images\templatemo_header_1.jpg" />
+    <Content Include="site\images\templatemo_header_2.jpg" />
+    <Content Include="site\images\templatemo_header_3.jpg" />
+    <Content Include="site\images\templatemo_header_4.jpg" />
+    <Content Include="site\images\templatemo_slide_1.jpg" />
+    <Content Include="site\images\templatemo_slide_2.jpg" />
+    <Content Include="site\images\templatemo_slide_3.jpg" />
+    <Content Include="site\index.html" />
+    <Content Include="site\js\bootstrap.js" />
+    <Content Include="site\js\main.js" />
+    <Content Include="site\js\min\main.min.js" />
+    <Content Include="site\js\min\plugins.min.js" />
+    <Content Include="site\js\plugins.js" />
+    <Content Include="site\js\vendor\jquery-1.11.0.min.js" />
+    <Content Include="site\js\vendor\jquery.gmap3.min.js" />
+    <Content Include="site\js\vendor\modernizr-2.6.1-respond-1.1.0.min.js" />
+    <Content Include="site\services.html" />
+    <Content Include="Web.config" />
+    <Content Include="yonetim\admin\css\bootstrap.min.css" />
+    <Content Include="yonetim\admin\css\font-awesome.min.css" />
+    <Content Include="yonetim\admin\css\templatemo_main.css" />
+    <Content Include="yonetim\admin\data-visualization.html" />
+    <Content Include="yonetim\admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="yonetim\admin\index.html" />
+    <Content Include="yonetim\admin\jqvmap\data\jquery.vmap.sampledata.js" />
+    <Content Include="yonetim\admin\jqvmap\jquery.vmap.js" />
+    <Content Include="yonetim\admin\jqvmap\jquery.vmap.min.js" />
+    <Content Include="yonetim\admin\jqvmap\jquery.vmap.packed.js" />
+    <Content Include="yonetim\admin\jqvmap\jqvmap.css" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.north-america.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\jquery.vmap.south-america.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\continents\readme.txt" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.algeria.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.brazil.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.france.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="yonetim\admin\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="yonetim\admin\js\bootstrap.min.js" />
+    <Content Include="yonetim\admin\js\Chart.min.js" />
+    <Content Include="yonetim\admin\js\jquery.min.js" />
+    <Content Include="yonetim\admin\js\templatemo_script.js" />
+    <Content Include="yonetim\admin\maps.html" />
+    <Content Include="yonetim\admin\preferences.html" />
+    <Content Include="yonetim\admin\sign-in.html" />
+    <Content Include="yonetim\admin\tables.html" />
+    <Content Include="yonetim\kullanicigiris.aspx" />
+    <Content Include="yonetim\kullanicikaydet.aspx" />
+    <Content Include="yonetim\kullanicisifremiunuttum.aspx" />
+    <Content Include="yonetim\kullaniciyonetimi.aspx" />
+    <Content Include="yonetim\SliderYonetimi.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="icerik.Master.cs">
+      <DependentUpon>icerik.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="icerik.Master.designer.cs">
+      <DependentUpon>icerik.Master</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\altslideryonetimi.aspx.cs">
+      <DependentUpon>altslideryonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\altslideryonetimi.aspx.designer.cs">
+      <DependentUpon>altslideryonetimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\degiskenleriyonet.aspx.cs">
+      <DependentUpon>degiskenleriyonet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\degiskenleriyonet.aspx.designer.cs">
+      <DependentUpon>degiskenleriyonet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="yonetim\admintemasi.Master.cs">
+      <DependentUpon>admintemasi.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\admintemasi.Master.designer.cs">
+      <DependentUpon>admintemasi.Master</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\kullanicigiris.aspx.cs">
+      <DependentUpon>kullanicigiris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\kullanicigiris.aspx.designer.cs">
+      <DependentUpon>kullanicigiris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\kullanicikaydet.aspx.cs">
+      <DependentUpon>kullanicikaydet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\kullanicikaydet.aspx.designer.cs">
+      <DependentUpon>kullanicikaydet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\kullanicisifremiunuttum.aspx.cs">
+      <DependentUpon>kullanicisifremiunuttum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\kullanicisifremiunuttum.aspx.designer.cs">
+      <DependentUpon>kullanicisifremiunuttum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\kullaniciyonetimi.aspx.cs">
+      <DependentUpon>kullaniciyonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\kullaniciyonetimi.aspx.designer.cs">
+      <DependentUpon>kullaniciyonetimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yonetim\SliderYonetimi.aspx.cs">
+      <DependentUpon>SliderYonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yonetim\SliderYonetimi.aspx.designer.cs">
+      <DependentUpon>SliderYonetimi.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="admin\fonts\FontAwesome.otf" />
+    <Content Include="icerik.Master" />
+    <Content Include="fonts\flexslider-icon.eot" />
+    <Content Include="fonts\flexslider-icon.ttf" />
+    <Content Include="fonts\flexslider-icon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="packages.config" />
+    <Content Include="site\config.rb" />
+    <Content Include="site\fonts\flexslider-icon.eot" />
+    <Content Include="site\fonts\flexslider-icon.ttf" />
+    <Content Include="site\fonts\flexslider-icon.woff" />
+    <Content Include="site\fonts\fontawesome-webfont.eot" />
+    <Content Include="site\fonts\fontawesome-webfont.ttf" />
+    <Content Include="site\fonts\fontawesome-webfont.woff" />
+    <Content Include="site\fonts\FontAwesome.otf" />
+    <Content Include="site\sass\bourbon\addons\_button.scss" />
+    <Content Include="site\sass\bourbon\addons\_clearfix.scss" />
+    <Content Include="site\sass\bourbon\addons\_font-family.scss" />
+    <Content Include="site\sass\bourbon\addons\_hide-text.scss" />
+    <Content Include="site\sass\bourbon\addons\_html5-input-types.scss" />
+    <Content Include="site\sass\bourbon\addons\_position.scss" />
+    <Content Include="site\sass\bourbon\addons\_prefixer.scss" />
+    <Content Include="site\sass\bourbon\addons\_retina-image.scss" />
+    <Content Include="site\sass\bourbon\addons\_size.scss" />
+    <Content Include="site\sass\bourbon\addons\_timing-functions.scss" />
+    <Content Include="site\sass\bourbon\addons\_triangle.scss" />
+    <Content Include="site\sass\bourbon\css3\_animation.scss" />
+    <Content Include="site\sass\bourbon\css3\_appearance.scss" />
+    <Content Include="site\sass\bourbon\css3\_backface-visibility.scss" />
+    <Content Include="site\sass\bourbon\css3\_background-image.scss" />
+    <Content Include="site\sass\bourbon\css3\_background.scss" />
+    <Content Include="site\sass\bourbon\css3\_border-image.scss" />
+    <Content Include="site\sass\bourbon\css3\_border-radius.scss" />
+    <Content Include="site\sass\bourbon\css3\_box-sizing.scss" />
+    <Content Include="site\sass\bourbon\css3\_columns.scss" />
+    <Content Include="site\sass\bourbon\css3\_flex-box.scss" />
+    <Content Include="site\sass\bourbon\css3\_font-face.scss" />
+    <Content Include="site\sass\bourbon\css3\_hidpi-media-query.scss" />
+    <Content Include="site\sass\bourbon\css3\_image-rendering.scss" />
+    <Content Include="site\sass\bourbon\css3\_inline-block.scss" />
+    <Content Include="site\sass\bourbon\css3\_keyframes.scss" />
+    <Content Include="site\sass\bourbon\css3\_linear-gradient.scss" />
+    <Content Include="site\sass\bourbon\css3\_perspective.scss" />
+    <Content Include="site\sass\bourbon\css3\_placeholder.scss" />
+    <Content Include="site\sass\bourbon\css3\_radial-gradient.scss" />
+    <Content Include="site\sass\bourbon\css3\_transform.scss" />
+    <Content Include="site\sass\bourbon\css3\_transition.scss" />
+    <Content Include="site\sass\bourbon\css3\_user-select.scss" />
+    <Content Include="site\sass\bourbon\functions\_compact.scss" />
+    <Content Include="site\sass\bourbon\functions\_flex-grid.scss" />
+    <Content Include="site\sass\bourbon\functions\_grid-width.scss" />
+    <Content Include="site\sass\bourbon\functions\_linear-gradient.scss" />
+    <Content Include="site\sass\bourbon\functions\_modular-scale.scss" />
+    <Content Include="site\sass\bourbon\functions\_px-to-em.scss" />
+    <Content Include="site\sass\bourbon\functions\_radial-gradient.scss" />
+    <Content Include="site\sass\bourbon\functions\_tint-shade.scss" />
+    <Content Include="site\sass\bourbon\functions\_transition-property-name.scss" />
+    <Content Include="site\sass\bourbon\helpers\_deprecated-webkit-gradient.scss" />
+    <Content Include="site\sass\bourbon\helpers\_gradient-positions-parser.scss" />
+    <Content Include="site\sass\bourbon\helpers\_linear-positions-parser.scss" />
+    <Content Include="site\sass\bourbon\helpers\_radial-arg-parser.scss" />
+    <Content Include="site\sass\bourbon\helpers\_radial-positions-parser.scss" />
+    <Content Include="site\sass\bourbon\helpers\_render-gradients.scss" />
+    <Content Include="site\sass\bourbon\helpers\_shape-size-stripper.scss" />
+    <Content Include="site\sass\bourbon\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="site\sass\bourbon\_bourbon.scss" />
+    <Content Include="site\sass\misc.scss" />
+    <Content Include="site\sass\partials\_base.scss" />
+    <Content Include="site\sass\partials\_content.scss" />
+    <Content Include="site\sass\partials\_footer.scss" />
+    <Content Include="site\sass\partials\_header.scss" />
+    <Content Include="site\sass\partials\_placeholders.scss" />
+    <Content Include="site\sass\partials\_reset.scss" />
+    <Content Include="site\sass\partials\_sidebar.scss" />
+    <Content Include="site\sass\partials\_slider.scss" />
+    <Content Include="site\sass\partials\_vars.scss" />
+    <Content Include="site\sass\styles.scss" />
+    <Content Include="sass\bourbon\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="sass\bourbon\_bourbon.scss" />
+    <Content Include="sass\bourbon\addons\_button.scss" />
+    <Content Include="sass\bourbon\addons\_clearfix.scss" />
+    <Content Include="sass\bourbon\addons\_font-family.scss" />
+    <Content Include="sass\bourbon\addons\_hide-text.scss" />
+    <Content Include="sass\bourbon\addons\_html5-input-types.scss" />
+    <Content Include="sass\bourbon\addons\_position.scss" />
+    <Content Include="sass\bourbon\addons\_prefixer.scss" />
+    <Content Include="sass\bourbon\addons\_retina-image.scss" />
+    <Content Include="sass\bourbon\addons\_size.scss" />
+    <Content Include="sass\bourbon\addons\_timing-functions.scss" />
+    <Content Include="sass\bourbon\addons\_triangle.scss" />
+    <Content Include="sass\bourbon\css3\_animation.scss" />
+    <Content Include="sass\bourbon\css3\_appearance.scss" />
+    <Content Include="sass\bourbon\css3\_backface-visibility.scss" />
+    <Content Include="sass\bourbon\css3\_background-image.scss" />
+    <Content Include="sass\bourbon\css3\_background.scss" />
+    <Content Include="sass\bourbon\css3\_border-image.scss" />
+    <Content Include="sass\bourbon\css3\_border-radius.scss" />
+    <Content Include="sass\bourbon\css3\_box-sizing.scss" />
+    <Content Include="sass\bourbon\css3\_columns.scss" />
+    <Content Include="sass\bourbon\css3\_flex-box.scss" />
+    <Content Include="sass\bourbon\css3\_font-face.scss" />
+    <Content Include="sass\bourbon\css3\_hidpi-media-query.scss" />
+    <Content Include="sass\bourbon\css3\_image-rendering.scss" />
+    <Content Include="sass\bourbon\css3\_inline-block.scss" />
+    <Content Include="sass\bourbon\css3\_keyframes.scss" />
+    <Content Include="sass\bourbon\css3\_linear-gradient.scss" />
+    <Content Include="sass\bourbon\css3\_perspective.scss" />
+    <Content Include="sass\bourbon\css3\_placeholder.scss" />
+    <Content Include="sass\bourbon\css3\_radial-gradient.scss" />
+    <Content Include="sass\bourbon\css3\_transform.scss" />
+    <Content Include="sass\bourbon\css3\_transition.scss" />
+    <Content Include="sass\bourbon\css3\_user-select.scss" />
+    <Content Include="sass\bourbon\functions\_compact.scss" />
+    <Content Include="sass\bourbon\functions\_flex-grid.scss" />
+    <Content Include="sass\bourbon\functions\_grid-width.scss" />
+    <Content Include="sass\bourbon\functions\_linear-gradient.scss" />
+    <Content Include="sass\bourbon\functions\_modular-scale.scss" />
+    <Content Include="sass\bourbon\functions\_px-to-em.scss" />
+    <Content Include="sass\bourbon\functions\_radial-gradient.scss" />
+    <Content Include="sass\bourbon\functions\_tint-shade.scss" />
+    <Content Include="sass\bourbon\functions\_transition-property-name.scss" />
+    <Content Include="sass\bourbon\helpers\_deprecated-webkit-gradient.scss" />
+    <Content Include="sass\bourbon\helpers\_gradient-positions-parser.scss" />
+    <Content Include="sass\bourbon\helpers\_linear-positions-parser.scss" />
+    <Content Include="sass\bourbon\helpers\_radial-arg-parser.scss" />
+    <Content Include="sass\bourbon\helpers\_radial-positions-parser.scss" />
+    <Content Include="sass\bourbon\helpers\_render-gradients.scss" />
+    <Content Include="sass\bourbon\helpers\_shape-size-stripper.scss" />
+    <Content Include="sass\misc.scss" />
+    <Content Include="sass\partials\_base.scss" />
+    <Content Include="sass\partials\_content.scss" />
+    <Content Include="sass\partials\_footer.scss" />
+    <Content Include="sass\partials\_header.scss" />
+    <Content Include="sass\partials\_placeholders.scss" />
+    <Content Include="sass\partials\_reset.scss" />
+    <Content Include="sass\partials\_sidebar.scss" />
+    <Content Include="sass\partials\_slider.scss" />
+    <Content Include="sass\partials\_vars.scss" />
+    <Content Include="sass\styles.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="yonetim\admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="yonetim\admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="yonetim\admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="yonetim\admin\fonts\FontAwesome.otf" />
+    <Content Include="yonetim\admintemasi.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{f37b89ab-2149-4120-b0b7-bbb38d770025}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b081b214-aefd-48fa-ae43-3ca078466180}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Upload\Duzenlenen\" />
+    <Folder Include="Upload\Orjinal\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62526</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44310/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

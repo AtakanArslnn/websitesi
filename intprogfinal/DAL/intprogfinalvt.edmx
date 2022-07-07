@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="intprogfinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AltSlider">
+          <Key>
+            <PropertyRef Name="AltSliderID" />
+          </Key>
+          <Property Name="AltSliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BaslikMetin" Type="nvarchar(max)" />
+          <Property Name="icerikMetin" Type="nvarchar(max)" />
+          <Property Name="IconURL" Type="nvarchar(max)" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="EkleyenKullaniciID" Type="int" />
+          <Property Name="SilinmeTarihi" Type="datetime" />
+          <Property Name="SilenKullaniciID" Type="int" />
+          <Property Name="SilinmeDurumu" Type="bit" />
+          <Property Name="TamMetin" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullaniciID" />
+          </Key>
+          <Property Name="kullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eposta" Type="nvarchar(max)" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+          <Property Name="Adi" Type="nvarchar(max)" />
+          <Property Name="Soyadi" Type="nvarchar(max)" />
+          <Property Name="kullaniciturID" Type="int" />
+          <Property Name="eklenmeTarihi" Type="datetime" />
+          <Property Name="silinmeTarihi" Type="datetime" />
+          <Property Name="silinmeDurumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="kullanicitur">
+          <Key>
+            <PropertyRef Name="kullaniciturID" />
+          </Key>
+          <Property Name="kullaniciturID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullanicituru" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sabit">
+          <Key>
+            <PropertyRef Name="sabitID" />
+          </Key>
+          <Property Name="sabitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logoURL" Type="nvarchar(max)" />
+          <Property Name="logoAciklama" Type="nvarchar(max)" />
+          <Property Name="siteadi" Type="nvarchar(max)" />
+          <Property Name="iletisimtel" Type="nvarchar(max)" />
+          <Property Name="haritax" Type="nvarchar(max)" />
+          <Property Name="haritay" Type="nvarchar(max)" />
+          <Property Name="silinmedurumu" Type="bit" />
+          <Property Name="silinmetarihi" Type="datetime" />
+          <Property Name="silenkullaniciID" Type="int" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SliderMetin" Type="nvarchar(max)" />
+          <Property Name="SliderResimURL" Type="nvarchar(max)" />
+          <Property Name="SilinmeDurumu" Type="bit" />
+          <Property Name="EkleyenKullaniciID" Type="int" />
+          <Property Name="EklemeTarihi" Type="datetime" />
+          <Property Name="SilinmeTarihi" Type="datetime" />
+          <Property Name="SilenKullaniciID" Type="int" />
+        </EntityType>
+        <EntityType Name="SM">
+          <Key>
+            <PropertyRef Name="smID" />
+          </Key>
+          <Property Name="smID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="smadi" Type="nvarchar(max)" />
+          <Property Name="smadresi" Type="nvarchar(max)" />
+          <Property Name="smiconurl" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Kullanici_kullanicitur">
+          <End Role="kullanicitur" Type="Self.kullanicitur" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kullanicitur">
+              <PropertyRef Name="kullaniciturID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="kullaniciturID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="intprogfinalModelStoreContainer">
+          <EntitySet Name="AltSlider" EntityType="Self.AltSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kullanicitur" EntityType="Self.kullanicitur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sabit" EntityType="Self.sabit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SM" EntityType="Self.SM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kullanici_kullanicitur" Association="Self.FK_Kullanici_kullanicitur">
+            <End Role="kullanicitur" EntitySet="kullanicitur" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="intprogfinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullaniciID" />
+          </Key>
+          <Property Name="kullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciturID" Type="Int32" />
+          <Property Name="eklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="silinmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="silinmeDurumu" Type="Boolean" />
+          <NavigationProperty Name="kullanicitur" Relationship="Self.FK_Kullanici_kullanicitur" FromRole="Kullanici" ToRole="kullanicitur" />
+        </EntityType>
+        <EntityType Name="kullanicitur">
+          <Key>
+            <PropertyRef Name="kullaniciturID" />
+          </Key>
+          <Property Name="kullaniciturID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullanicituru" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_kullanicitur" FromRole="kullanicitur" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="sabit">
+          <Key>
+            <PropertyRef Name="sabitID" />
+          </Key>
+          <Property Name="sabitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="logoAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="siteadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="iletisimtel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="haritax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="haritay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="silinmedurumu" Type="Boolean" />
+          <Property Name="silinmetarihi" Type="DateTime" Precision="3" />
+          <Property Name="silenkullaniciID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SM">
+          <Key>
+            <PropertyRef Name="smID" />
+          </Key>
+          <Property Name="smID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="smadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="smadresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="smiconurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Kullanici_kullanicitur">
+          <End Role="kullanicitur" Type="Self.kullanicitur" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kullanicitur">
+              <PropertyRef Name="kullaniciturID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="kullaniciturID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="intprogfinalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="kullanicitur" EntityType="Self.kullanicitur" />
+          <EntitySet Name="sabit" EntityType="Self.sabit" />
+          <EntitySet Name="SM" EntityType="Self.SM" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Kullanici_kullanicitur" Association="Self.FK_Kullanici_kullanicitur">
+            <End Role="kullanicitur" EntitySet="kullanicitur" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <EntitySet Name="Slider" EntityType="intprogfinalModel.Slider" />
+          <EntitySet Name="AltSlider" EntityType="intprogfinalModel.AltSlider" />
+        </EntityContainer>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SliderMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SliderResimURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SilinmeDurumu" Type="Boolean" />
+          <Property Name="EkleyenKullaniciID" Type="Int32" />
+          <Property Name="EklemeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SilinmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SilenKullaniciID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AltSlider">
+          <Key>
+            <PropertyRef Name="AltSliderID" />
+          </Key>
+          <Property Name="AltSliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BaslikMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="icerikMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IconURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="EkleyenKullaniciID" Type="Int32" />
+          <Property Name="SilinmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SilenKullaniciID" Type="Int32" />
+          <Property Name="SilinmeDurumu" Type="Boolean" />
+          <Property Name="TamMetin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="intprogfinalModelStoreContainer" CdmEntityContainer="intprogfinalEntities">
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="intprogfinalModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="kullaniciturID" ColumnName="kullaniciturID" />
+                <ScalarProperty Name="eklenmeTarihi" ColumnName="eklenmeTarihi" />
+                <ScalarProperty Name="silinmeTarihi" ColumnName="silinmeTarihi" />
+                <ScalarProperty Name="silinmeDurumu" ColumnName="silinmeDurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanicitur">
+            <EntityTypeMapping TypeName="intprogfinalModel.kullanicitur">
+              <MappingFragment StoreEntitySet="kullanicitur">
+                <ScalarProperty Name="kullaniciturID" ColumnName="kullaniciturID" />
+                <ScalarProperty Name="kullanicituru" ColumnName="kullanicituru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sabit">
+            <EntityTypeMapping TypeName="intprogfinalModel.sabit">
+              <MappingFragment StoreEntitySet="sabit">
+                <ScalarProperty Name="sabitID" ColumnName="sabitID" />
+                <ScalarProperty Name="logoURL" ColumnName="logoURL" />
+                <ScalarProperty Name="logoAciklama" ColumnName="logoAciklama" />
+                <ScalarProperty Name="siteadi" ColumnName="siteadi" />
+                <ScalarProperty Name="iletisimtel" ColumnName="iletisimtel" />
+                <ScalarProperty Name="haritax" ColumnName="haritax" />
+                <ScalarProperty Name="haritay" ColumnName="haritay" />
+                <ScalarProperty Name="silinmedurumu" ColumnName="silinmedurumu" />
+                <ScalarProperty Name="silinmetarihi" ColumnName="silinmetarihi" />
+                <ScalarProperty Name="silenkullaniciID" ColumnName="silenkullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SM">
+            <EntityTypeMapping TypeName="intprogfinalModel.SM">
+              <MappingFragment StoreEntitySet="SM">
+                <ScalarProperty Name="smID" ColumnName="smID" />
+                <ScalarProperty Name="smadi" ColumnName="smadi" />
+                <ScalarProperty Name="smadresi" ColumnName="smadresi" />
+                <ScalarProperty Name="smiconurl" ColumnName="smiconurl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="intprogfinalModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider">
+            <EntityTypeMapping TypeName="intprogfinalModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="SilenKullaniciID" ColumnName="SilenKullaniciID" />
+                <ScalarProperty Name="SilinmeTarihi" ColumnName="SilinmeTarihi" />
+                <ScalarProperty Name="EklemeTarihi" ColumnName="EklemeTarihi" />
+                <ScalarProperty Name="EkleyenKullaniciID" ColumnName="EkleyenKullaniciID" />
+                <ScalarProperty Name="SilinmeDurumu" ColumnName="SilinmeDurumu" />
+                <ScalarProperty Name="SliderResimURL" ColumnName="SliderResimURL" />
+                <ScalarProperty Name="SliderMetin" ColumnName="SliderMetin" />
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AltSlider">
+            <EntityTypeMapping TypeName="intprogfinalModel.AltSlider">
+              <MappingFragment StoreEntitySet="AltSlider">
+                <ScalarProperty Name="TamMetin" ColumnName="TamMetin" />
+                <ScalarProperty Name="SilinmeDurumu" ColumnName="SilinmeDurumu" />
+                <ScalarProperty Name="SilenKullaniciID" ColumnName="SilenKullaniciID" />
+                <ScalarProperty Name="SilinmeTarihi" ColumnName="SilinmeTarihi" />
+                <ScalarProperty Name="EkleyenKullaniciID" ColumnName="EkleyenKullaniciID" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="IconURL" ColumnName="IconURL" />
+                <ScalarProperty Name="icerikMetin" ColumnName="icerikMetin" />
+                <ScalarProperty Name="BaslikMetin" ColumnName="BaslikMetin" />
+                <ScalarProperty Name="AltSliderID" ColumnName="AltSliderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

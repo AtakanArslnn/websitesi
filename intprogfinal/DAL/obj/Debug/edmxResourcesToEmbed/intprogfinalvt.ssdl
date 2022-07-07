@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="intprogfinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AltSlider">
+    <Key>
+      <PropertyRef Name="AltSliderID" />
+    </Key>
+    <Property Name="AltSliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaslikMetin" Type="nvarchar(max)" />
+    <Property Name="icerikMetin" Type="nvarchar(max)" />
+    <Property Name="IconURL" Type="nvarchar(max)" />
+    <Property Name="EklenmeTarihi" Type="datetime" />
+    <Property Name="EkleyenKullaniciID" Type="int" />
+    <Property Name="SilinmeTarihi" Type="datetime" />
+    <Property Name="SilenKullaniciID" Type="int" />
+    <Property Name="SilinmeDurumu" Type="bit" />
+    <Property Name="TamMetin" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="kullaniciID" />
+    </Key>
+    <Property Name="kullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Eposta" Type="nvarchar(max)" />
+    <Property Name="Sifre" Type="nvarchar(max)" />
+    <Property Name="Adi" Type="nvarchar(max)" />
+    <Property Name="Soyadi" Type="nvarchar(max)" />
+    <Property Name="kullaniciturID" Type="int" />
+    <Property Name="eklenmeTarihi" Type="datetime" />
+    <Property Name="silinmeTarihi" Type="datetime" />
+    <Property Name="silinmeDurumu" Type="bit" />
+  </EntityType>
+  <EntityType Name="kullanicitur">
+    <Key>
+      <PropertyRef Name="kullaniciturID" />
+    </Key>
+    <Property Name="kullaniciturID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicituru" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sabit">
+    <Key>
+      <PropertyRef Name="sabitID" />
+    </Key>
+    <Property Name="sabitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logoURL" Type="nvarchar(max)" />
+    <Property Name="logoAciklama" Type="nvarchar(max)" />
+    <Property Name="siteadi" Type="nvarchar(max)" />
+    <Property Name="iletisimtel" Type="nvarchar(max)" />
+    <Property Name="haritax" Type="nvarchar(max)" />
+    <Property Name="haritay" Type="nvarchar(max)" />
+    <Property Name="silinmedurumu" Type="bit" />
+    <Property Name="silinmetarihi" Type="datetime" />
+    <Property Name="silenkullaniciID" Type="int" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderID" />
+    </Key>
+    <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SliderMetin" Type="nvarchar(max)" />
+    <Property Name="SliderResimURL" Type="nvarchar(max)" />
+    <Property Name="SilinmeDurumu" Type="bit" />
+    <Property Name="EkleyenKullaniciID" Type="int" />
+    <Property Name="EklemeTarihi" Type="datetime" />
+    <Property Name="SilinmeTarihi" Type="datetime" />
+    <Property Name="SilenKullaniciID" Type="int" />
+  </EntityType>
+  <EntityType Name="SM">
+    <Key>
+      <PropertyRef Name="smID" />
+    </Key>
+    <Property Name="smID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="smadi" Type="nvarchar(max)" />
+    <Property Name="smadresi" Type="nvarchar(max)" />
+    <Property Name="smiconurl" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Kullanici_kullanicitur">
+    <End Role="kullanicitur" Type="Self.kullanicitur" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanicitur">
+        <PropertyRef Name="kullaniciturID" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="kullaniciturID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="intprogfinalModelStoreContainer">
+    <EntitySet Name="AltSlider" EntityType="Self.AltSlider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanicitur" EntityType="Self.kullanicitur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sabit" EntityType="Self.sabit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SM" EntityType="Self.SM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Kullanici_kullanicitur" Association="Self.FK_Kullanici_kullanicitur">
+      <End Role="kullanicitur" EntitySet="kullanicitur" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
